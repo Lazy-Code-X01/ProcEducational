@@ -16,7 +16,7 @@ const Footer = (props) => {
           {columnLinks.map((column, index) => (
             <ul
               key={index}
-              className="grid grid-flow-row grid-cols-1 items-start justify-center justify-items-center gap-6 md:grid-flow-col md:grid-cols-[max-content] md:justify-center md:justify-items-start"
+              className="grid grid-flow-row grid-cols-1 items-start justify-center justify-items-center gap-6 md:grid-flow-col md:grid-cols-4 md:justify-center md:justify-items-start"
             >
               {column.links.map((link, linkIndex) => (
                 <li key={linkIndex} className="font-semibold">
