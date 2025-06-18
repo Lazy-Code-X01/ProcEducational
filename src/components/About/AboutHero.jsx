@@ -5,10 +5,13 @@ export const AboutHero = (props) => {
   };
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
-        <div className="w-full max-w-lg">
-          <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">{heading}</h1>
+    <section
+      id="relume"
+      className="px-[5%] py-16 md:py-24 lg:py-28  relative bg-gradient-to-r from-[#92B2E3] via-[#DADADA] to-[#E65F27]"
+    >
+      <div className="container  relative top-10">
+        <div className="w-full max-w-2xl">
+          <h1 className="mb-5 text-6xl font-normal md:mb-6 md:text-9xl lg:text-6xl">{heading}</h1>
           <p className="md:text-md">{description}</p>
         </div>
       </div>
@@ -17,7 +20,7 @@ export const AboutHero = (props) => {
 };
 
 export const Header46Defaults = {
-  heading: 'Short heading here',
+  heading: 'Our Visionary Mission',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+    'Discover how ProC connects communities through education and global partnerships for a brighter future.',
 };

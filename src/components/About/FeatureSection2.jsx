@@ -1,5 +1,6 @@
 import { Button } from '@relume_io/relume-ui';
 import { RxChevronRight } from 'react-icons/rx';
+import About2 from '../../assets/About2.png';
 
 export const FeatureSection2 = (props) => {
   const { heading, description, tagline, buttons, image } = {
@@ -8,21 +9,38 @@ export const FeatureSection2 = (props) => {
   };
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#f9f9f9]">
       <div className="container">
         <div className="mb-12 grid grid-cols-1 items-start justify-between gap-x-12 gap-y-5 md:mb-18 md:grid-cols-2 md:gap-x-12 md:gap-y-8 lg:mb-20 lg:gap-x-20">
           <div>
-            <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-            <h3 className="text-5xl font-bold leading-[1.2] md:text-7xl lg:text-8xl">{heading}</h3>
+            <p className="mb-3 font-bold md:mb-4">{tagline}</p>
+            <h3 className="text-2xl font-normal leading-[1.2] md:text-3xl lg:text-4xl">
+              {heading}
+            </h3>
           </div>
           <div>
             <p className="md:text-md">{description}</p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              {buttons.map((button, index) => (
-                <Button key={index} {...button}>
-                  {button.title}
-                </Button>
-              ))}
+              {buttons.map((button, index) => {
+                const isLearnmore = button.title.toLowerCase() === 'Learn More';
+                const isJoin = button.title.toLowerCase() === 'Join Us';
+
+                return (
+                  <Button
+                    key={index}
+                    {...button}
+                    className={`px-4 py-2 rounded-full font-semibold flex cursor-pointer ${
+                      isLearnmore
+                        ? 'bg-white border-gray-100 text-black'
+                        : isJoin
+                          ? 'border border-white text-black-700'
+                          : ''
+                    }`}
+                  >
+                    {button.title}
+                  </Button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -33,18 +51,18 @@ export const FeatureSection2 = (props) => {
 };
 
 export const Layout89Defaults = {
-  tagline: 'Tagline',
-  heading: 'Medium length section heading goes here',
+  tagline: 'Empower',
+  heading: 'Our Mission: Transforming Education and Communities',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.',
+    'At ProC, our mission is to empower communities through education, cultural exchange, and meaningful partnerships. We believe that by fostering connections between diverse cultures, we can create opportunities for growth and understanding. Together, we strive to build a more inclusive and informed world.',
   image: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg',
+    src: About2,
     alt: 'Relume placeholder image',
   },
   buttons: [
-    { title: 'Button', variant: 'secondary' },
+    { title: 'Learn More', variant: 'secondary' },
     {
-      title: 'Button',
+      title: 'Join Us',
       variant: 'link',
       size: 'link',
       iconRight: <RxChevronRight />,

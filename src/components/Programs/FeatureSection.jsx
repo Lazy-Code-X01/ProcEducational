@@ -1,3 +1,5 @@
+import Program1 from '../../assets/Programs1.png';
+
 export const FeatureSection = (props) => {
   const { heading, description, image } = {
     ...Layout3Defaults,
@@ -9,7 +11,7 @@ export const FeatureSection = (props) => {
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
-            <h1 className="rb-5 mb-5 text-4xl font-bold md:mb-6 md:text-5xl lg:text-6xl">
+            <h1 className="rb-5 mb-5 text-2xl font-normal md:mb-6 md:text-3xl lg:text-4xl">
               {heading}
             </h1>
             <p className="md:text-md">{description}</p>
@@ -24,11 +26,11 @@ export const FeatureSection = (props) => {
 };
 
 export const Layout3Defaults = {
-  heading: 'Long heading is what you see here in this feature section',
+  heading: 'Empowering Global Learning: Your Pathway to International Education Success',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.',
+    'Our International Education Services provide comprehensive academic planning, engaging workshops, and thorough study abroad preparation. We are dedicated to equipping students with the tools they need to thrive in a global learning environment.',
   image: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg',
+    src: Program1,
     alt: 'Relume placeholder image',
   },
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button, useMediaQuery } from '@relume_io/relume-ui';
 import { AnimatePresence, motion } from 'framer-motion';
+import LogoImage from '../assets/logo.png';
 import { RxChevronDown } from 'react-icons/rx';
 
 const Navbar = (props) => {
@@ -29,13 +30,13 @@ const Navbar = (props) => {
         scrolled ? 'backdrop-blur-md bg-white/70 shadow-md' : 'bg-white'
       } lg:min-h-18 lg:px-[5%]`}
     >
-      <div className="container mx-auto flex items-center justify-between px-[5%] py-4 lg:px-0">
+      <div className="container mx-auto flex items-center justify-between px-[5%] py-2 lg:px-0">
         {/* Left Section: Logo + Nav Links */}
         <div className="flex items-center gap-8">
           <a href={logo.url}>
-            <img src={logo.src} alt={logo.alt} className="h-10 w-auto" />
+            <img src={logo.src} alt={logo.alt} className="h-15 w-auto" />
           </a>
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6 ">
             {navLinks.map((navLink, index) => (
               <a key={index} href={navLink.url} className="text-base font-medium">
                 {navLink.title}
@@ -54,7 +55,7 @@ const Navbar = (props) => {
               <Button
                 key={index}
                 {...button}
-                className={`px-6 py-2 rounded-lg font-medium ${
+                className={`px-6 py-2 rounded-full font-medium ${
                   isStart
                     ? 'bg-[#E65F27] text-white'
                     : isLearn
@@ -133,7 +134,7 @@ export default Navbar;
 export const Navbar1Defaults = {
   logo: {
     url: '#',
-    src: 'https://d22po4pjz3o32e.cloudfront.net/logo-image.svg',
+    src: LogoImage,
     alt: 'Logo image',
   },
   navLinks: [

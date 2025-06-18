@@ -1,3 +1,6 @@
+import VisionIcon from '../../assets/VisionIcon.png';
+import About3 from '../../assets/About3.png';
+
 export const FeatureSection3 = (props) => {
   const { icon, heading, description, image } = {
     ...Layout24Defaults,
@@ -10,9 +13,9 @@ export const FeatureSection3 = (props) => {
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
             <div className="rb-5 mb-5 md:mb-6">
-              <img src={icon.src} className="size-12" alt={icon.alt} />
+              <img src={icon.src} className="size-8" alt={icon.alt} />
             </div>
-            <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
+            <h3 className="mb-5 text-2xl font-normal leading-[1.2] md:mb-6 md:text-3xl lg:text-4xl">
               {heading}
             </h3>
             <p className="md:text-md">{description}</p>
@@ -28,14 +31,14 @@ export const FeatureSection3 = (props) => {
 
 export const Layout24Defaults = {
   icon: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg',
+    src: VisionIcon,
     alt: 'Relume logo',
   },
-  heading: 'Long heading is what you see here in this feature section',
+  heading: 'Our Vision: Uniting Students, Cities, and Educators for a Brighter Future',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.',
+    'At ProC, we envision a world where education transcends borders, fostering understanding and cooperation among diverse communities. By connecting students, cities, and educators globally, we aim to cultivate an informed and inclusive society.',
   image: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg',
+    src: About3,
     alt: 'Relume placeholder image',
   },
 };

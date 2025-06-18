@@ -1,4 +1,5 @@
 import React from 'react';
+import Feature1 from '../../assets/AboutFeature1.png';
 
 export const FeatureSection = (props) => {
   const { heading, description, image, subHeadings } = {
@@ -11,14 +12,14 @@ export const FeatureSection = (props) => {
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
-            <h1 className="rb-5 mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
+            <h1 className="rb-5 mb-5 text-2xl font-normal leading-[1.2] md:mb-6 md:text-3xl lg:text-4xl">
               {heading}
             </h1>
             <p className="mb-6 md:mb-8 md:text-md">{description}</p>
             <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
               {subHeadings.map((subHeading, index) => (
                 <div key={index}>
-                  <h6 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
+                  <h6 className="mb-3 text-md font-normal leading-[1.4] md:mb-4 md:text-xl">
                     {subHeading.title}
                   </h6>
                   <p>{subHeading.description}</p>
@@ -36,23 +37,23 @@ export const FeatureSection = (props) => {
 };
 
 export const Layout6Defaults = {
-  heading: 'Long heading is what you see here in this feature section',
+  heading: 'Meet Our Founder: A Visionary in Education and Global Connectivity',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.',
+    'Promise C. Ezeh, MHIT, is the driving force behind ProC Education Services. With a passion for bridging communities, she empowers individuals through innovative educational solutions.',
   subHeadings: [
     {
-      title: 'Subheading one',
+      title: 'Visionary Leader',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.',
+        "Promise's commitment to education fosters global connections and enriches communities across continents.",
     },
     {
-      title: 'Subheading two',
+      title: 'Global Connector',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.',
+        'She champions cultural exchange and collaboration, creating opportunities for all learners.',
     },
   ],
   image: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg',
+    src: Feature1,
     alt: 'Relume placeholder image',
   },
 };
