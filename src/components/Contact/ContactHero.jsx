@@ -1,4 +1,5 @@
 import { Button } from '@relume_io/relume-ui';
+import Contact1 from '../../assets/Contact1.png';
 
 export const ContactHero = (props) => {
   const { tagline, heading, description, buttons, image } = {
@@ -9,17 +10,32 @@ export const ContactHero = (props) => {
   return (
     <section id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container relative z-10 max-w-lg text-center">
-        <p className="mb-3 font-semibold text-text-alternative md:mb-4">{tagline}</p>
-        <h1 className="mb-5 text-6xl font-bold text-text-alternative md:mb-6 md:text-9xl lg:text-10xl">
+        <p className="mb-3 text-white font-bold text-text-alternative md:mb-4">{tagline}</p>
+        <h1 className="mb-5 text-6xl text-white font-bold text-text-alternative md:mb-6 md:text-9xl lg:text-10xl">
           {heading}
         </h1>
-        <p className="text-text-alternative md:text-md">{description}</p>
+        <p className="text-text-alternative text-white md:text-md">{description}</p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-          {buttons.map((button, index) => (
-            <Button key={index} {...button}>
-              {button.title}
-            </Button>
-          ))}
+          {buttons.map((button, index) => {
+            const isSubmit = button.title.toLowerCase() === 'submit';
+            const isInquire = button.title.toLowerCase() === 'inquire';
+
+            return (
+              <Button
+                key={index}
+                {...button}
+                className={`px-4 py-2 rounded-full font-semibold flex cursor-pointer ${
+                  isSubmit
+                    ? 'bg-white border-gray-100 text-black'
+                    : isInquire
+                      ? 'border border-gray-300 text-white'
+                      : ''
+                }`}
+              >
+                {button.title}
+              </Button>
+            );
+          })}
         </div>
       </div>
       <div className="absolute inset-0 z-0">
@@ -31,21 +47,20 @@ export const ContactHero = (props) => {
 };
 
 export const Header65Defaults = {
-  tagline: 'Tagline',
-  heading: 'Short heading here',
-  description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+  tagline: '',
+  heading: '',
+  description: '',
   buttons: [
     {
-      title: 'Button',
+      title: '',
     },
     {
-      title: 'Button',
+      title: '',
       variant: 'secondary-alt',
     },
   ],
   image: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg',
+    src: Contact1,
     alt: 'Relume placeholder image',
   },
 };

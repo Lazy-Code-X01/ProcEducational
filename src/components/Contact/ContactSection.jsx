@@ -1,6 +1,7 @@
 import { Button } from '@relume_io/relume-ui';
 import React from 'react';
 import { BiEnvelope, BiMap, BiPhone } from 'react-icons/bi';
+import Contact2 from '../../assets/Contact2.png';
 
 export const ContactSection = (props) => {
   const { tagline, heading, description, contacts, image } = {
@@ -14,8 +15,8 @@ export const ContactSection = (props) => {
         <div>
           <div className="mb-12 grid auto-cols-fr grid-cols-1 gap-x-12 gap-y-12 md:mb-20 md:grid-cols-[1fr_.75fr] md:gap-x-20 md:gap-y-16">
             <div className="rb-12 max-w-lg">
-              <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-              <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+              <p className="mb-3 font-bold md:mb-4">{tagline}</p>
+              <h2 className="rb-5 mb-5 text-3xl font-normal md:mb-6 md:text-4xl lg:text-5xl">
                 {heading}
               </h2>
               <p className="md:text-md">{description}</p>
@@ -26,7 +27,7 @@ export const ContactSection = (props) => {
                   <div key={index} className="flex flex-row">
                     <div className="mr-4 md:mb-4">{contact.icon}</div>
                     <div>
-                      <h3 className="mb-2 text-md font-bold leading-[1.4] md:text-xl">
+                      <h3 className="mb-2 text-md font-normal leading-[1.4] md:text-xl">
                         {contact.title}
                       </h3>
                       <p>{contact.description}</p>
@@ -57,16 +58,15 @@ export const ContactSection = (props) => {
 };
 
 export const Contact15Defaults = {
-  tagline: 'Tagline',
-  heading: 'Contact us',
-  description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+  tagline: 'Connect',
+  heading: 'Get In Touch',
+  description: 'We’re here to help you with any inquiries or support you may need.',
   contacts: [
     {
       icon: <BiEnvelope className="size-6" />,
       title: 'Email',
       link: {
-        label: 'hello@relume.io',
+        label: 'info@proceduservices.com',
         url: '#',
       },
     },
@@ -74,7 +74,7 @@ export const Contact15Defaults = {
       icon: <BiPhone className="size-6" />,
       title: 'Phone',
       link: {
-        label: '+1 (555) 000-0000',
+        label: '+1 (803) 404-3475',
         url: '#',
       },
     },
@@ -85,7 +85,7 @@ export const Contact15Defaults = {
     },
   ],
   image: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg',
+    src: Contact2,
     alt: 'Relume placeholder image',
   },
 };

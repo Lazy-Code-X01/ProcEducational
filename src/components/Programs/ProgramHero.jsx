@@ -7,7 +7,7 @@ export const ProgramHero = (props) => {
   return (
     <section
       id="relume"
-      className="px-[5%] py-16 md:py-24 lg:py-28 relative bg-gradient-to-r from-[#92B2E3] via-[#DADADA] to-[#E65F27]"
+      className="px-[5%] py-16 md:py-24 lg:py-28 relative bg-[linear-gradient(to_right,_#a7c5eb,_#d2b0b0,_#ed774d)]"
     >
       <div className="container">
         <div className="grid grid-cols-1 items-start gap-x-12 gap-y-5 md:grid-cols-2  lg:gap-x-20 lg:gap-y-16">

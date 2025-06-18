@@ -22,116 +22,128 @@ export const ContactFormSection = (props) => {
     ...props,
   };
 
-  const [firstNameInput, setFirstNameInput] = useState('');
-  const [lastNameInput, setLastNameInput] = useState('');
-  const [emailInput, setEmailInput] = useState('');
-  const [phoneInput, setPhoneInput] = useState('');
-  const [selectedItem, setSelectedItem] = useState('');
-  const [selectedRadio, setSelectedRadio] = useState('');
-  const [messageInput, setMessageInput] = useState('');
-  const [acceptTerms, setAcceptTerms] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    topic: '',
+    description: '',
+    message: '',
+    acceptTerms: false,
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({
-      firstNameInput,
-      lastNameInput,
-      emailInput,
-      phoneInput,
-      selectedItem,
-      selectedRadio,
-      messageInput,
-      acceptTerms,
-    });
+    console.log(formData);
+  };
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
 
   const selectItems = [
-    { value: 'first-choice', label: 'First Choice' },
-    { value: 'second-choice', label: 'Second Choice' },
-    { value: 'third-choice', label: 'Third Choice' },
+    { value: 'Student-Inquiry', label: 'Student Inquiry' },
+    { value: 'general-inquiry', label: 'General Inquiry' },
+    { value: 'partnership-interest', label: 'Partnership Interest' },
   ];
 
   const radioItems = [
-    { value: 'first-choice', label: 'First choice' },
-    { value: 'second-choice', label: 'Second choice' },
-    { value: 'third-choice', label: 'Third choice' },
-    { value: 'fourth-choice', label: 'Fourth choice' },
-    { value: 'fifth-choice', label: 'Fifth choice' },
+    { value: 'Student-Inquiry', label: 'First choice' },
+    { value: 'general-inquiry', label: 'General Inquiry' },
+    { value: 'partnership-interest', label: 'Partnership Interest' },
+    { value: 'feedback-request', label: 'Feedback Request' },
+    { value: 'other-inquiry', label: 'Other Inquiry' },
     { value: 'other', label: 'Other' },
   ];
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container max-w-lg">
-        <div className="mx-auto mb-8 w-full max-w-lg text-center md:mb-10 lg:mb-12">
-          <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-            {heading}
-          </h2>
-          <p className="md:text-md">{description}</p>
+    <section className="flex justify-center items-center min-h-screen bg-[#f9f9f9] p-4">
+      <div className="w-full max-w-2xl rounded-lg shadow-md p-8">
+        <div className="text-center mb-8">
+          <p className="text-sm font-semibold text-gray-500 mb-2">{tagline}</p>
+          <h2 className="text-3xl font-medium text-gray-800 mb-4">{heading}</h2>
+          <p className="text-gray-[#E65F27]">{description}</p>
         </div>
-        <form className="grid grid-cols-1 grid-rows-[auto_auto] gap-6" onSubmit={handleSubmit}>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="grid w-full items-center">
-              <Label htmlFor="firstName" className="mb-2">
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <Label htmlFor="firstName" className="block mb-2 text-sm font-medium text-gray-700">
                 First name
               </Label>
               <Input
                 type="text"
                 id="firstName"
-                value={firstNameInput}
-                onChange={(e) => setFirstNameInput(e.target.value)}
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#E65F27] focus:border-[#E65F27]"
               />
             </div>
 
-            <div className="grid w-full items-center">
-              <Label htmlFor="lastName" className="mb-2">
+            <div>
+              <Label htmlFor="lastName" className="block mb-2 text-sm font-medium text-gray-700">
                 Last name
               </Label>
               <Input
                 type="text"
                 id="lastName"
-                value={lastNameInput}
-                onChange={(e) => setLastNameInput(e.target.value)}
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#E65F27] focus:border-[#E65F27]"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="grid w-full items-center">
-              <Label htmlFor="email" className="mb-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <Label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-700">
                 Email
               </Label>
               <Input
                 type="email"
                 id="email"
-                value={emailInput}
-                onChange={(e) => setEmailInput(e.target.value)}
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#E65F27] focus:border-[#E65F27]"
               />
             </div>
 
-            <div className="grid w-full items-center">
-              <Label htmlFor="phone" className="mb-2">
+            <div>
+              <Label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-700">
                 Phone number
               </Label>
               <Input
-                type="text"
+                type="tel"
                 id="phone"
-                value={phoneInput}
-                onChange={(e) => setPhoneInput(e.target.value)}
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#E65F27] focus:border-[#E65F27]"
               />
             </div>
           </div>
 
-          <div className="grid w-full items-center">
-            <Label className="mb-2">Choose a topic</Label>
-            <Select onValueChange={setSelectedItem}>
-              <SelectTrigger>
+          <div>
+            <Label className="block mb-2 text-sm font-medium text-gray-700">Select a topic</Label>
+            <Select onValueChange={(value) => setFormData({ ...formData, topic: value })}>
+              <SelectTrigger className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#E65F27] focus:border-[#E65F27]">
                 <SelectValue placeholder="Select one..." />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-white border border-gray-300 rounded-md shadow-lg">
                 {selectItems.map((item, index) => (
-                  <SelectItem key={index} value={item.value}>
+                  <SelectItem
+                    key={index}
+                    value={item.value}
+                    className="p-2 hover:bg-gray-100 cursor-pointer"
+                  >
                     {item.label}
                   </SelectItem>
                 ))}
@@ -139,46 +151,66 @@ export const ContactFormSection = (props) => {
             </Select>
           </div>
 
-          <div className="grid w-full items-center py-3 md:py-4">
-            <Label className="mb-3 md:mb-4">Which best describes you?</Label>
+          <div>
+            <Label className="block mb-3 text-sm font-medium text-gray-700">
+              Which best describes you?
+            </Label>
             <RadioGroup
-              className="grid grid-cols-2 gap-x-6 gap-y-3.5"
-              onValueChange={setSelectedRadio}
+              onValueChange={(value) => setFormData({ ...formData, description: value })}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
             >
               {radioItems.map((item, index) => (
                 <div key={index} className="flex items-center space-x-2">
-                  <RadioGroupItem value={item.value} id={item.value} />
-                  <Label htmlFor={item.value}>{item.label}</Label>
+                  <RadioGroupItem
+                    value={item.value}
+                    id={item.value}
+                    className="h-4 w-4 text-[#E65F27] focus:ring-[#E65F27]"
+                  />
+                  <Label htmlFor={item.value} className="text-sm font-medium text-gray-700">
+                    {item.label}
+                  </Label>
                 </div>
               ))}
             </RadioGroup>
           </div>
 
-          <div className="grid w-full items-center">
-            <Label htmlFor="message" className="mb-2">
+          <div>
+            <Label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-700">
               Message
             </Label>
             <Textarea
               id="message"
+              name="message"
               placeholder="Type your message..."
-              className="min-h-[11.25rem] overflow-auto"
-              value={messageInput}
-              onChange={(e) => setMessageInput(e.target.value)}
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-md min-h-[150px] focus:ring-2 focus:ring-[#E65F27] focus:border-[#E65F27]"
             />
           </div>
 
-          <div className="mb-3 flex items-center space-x-2 text-sm md:mb-4">
-            <Checkbox id="terms" checked={acceptTerms} onCheckedChange={setAcceptTerms} />
-            <Label htmlFor="terms" className="cursor-pointer">
+          <div className="flex items-center">
+            <Checkbox
+              id="terms"
+              name="acceptTerms"
+              checked={formData.acceptTerms}
+              onCheckedChange={(checked) => setFormData({ ...formData, acceptTerms: checked })}
+              className="h-4 w-4 text-[#E65F27] focus:ring-[#E65F27]"
+            />
+            <Label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
               I accept the{' '}
-              <a className="text-link-primary underline" href="#">
+              <a href="#" className="text-[#E65F27] hover:text-[#E65F27]">
                 Terms
               </a>
             </Label>
           </div>
 
           <div className="text-center">
-            <Button {...button}>{button.title}</Button>
+            <Button
+              type="submit"
+              className="w-full md:w-auto px-6 py-3 bg-blue-[#E65F27] text-white font-medium rounded-md hover:bg-[#E65F27] focus:outline-none focus:ring-2 focus:ring-[#E65F27] focus:ring-offset-2"
+            >
+              {button.title}
+            </Button>
           </div>
         </form>
       </div>
@@ -187,8 +219,8 @@ export const ContactFormSection = (props) => {
 };
 
 export const Contact2Defaults = {
-  tagline: 'Tagline',
-  heading: 'Contact us',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  tagline: 'Connect',
+  heading: 'Get in Touch',
+  description: "We'd love to hear from you!",
   button: { title: 'Submit' },
 };
