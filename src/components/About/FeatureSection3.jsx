@@ -18,7 +18,7 @@ export const FeatureSection3 = (props) => {
             <h3 className="mb-5 text-2xl font-normal leading-[1.2] md:mb-6 md:text-3xl lg:text-4xl">
               {heading}
             </h3>
-            <p className="md:text-md">{description}</p>
+            <p className="md:text-md text-sm">{description}</p>
           </div>
           <div>
             <img src={image.src} className="w-full object-cover" alt={image.alt} />

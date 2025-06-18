@@ -62,8 +62,8 @@ export const ContactFormSection = (props) => {
   ];
 
   return (
-    <section className="flex justify-center items-center min-h-screen bg-[#f9f9f9] p-4">
-      <div className="w-full max-w-2xl rounded-lg shadow-md p-8">
+    <section className="flex justify-center items-center min-h-screen">
+      <div className="w-full max-w-2xl rounded-lg shadow-md p-4">
         <div className="text-center mb-8">
           <p className="text-sm font-semibold text-gray-500 mb-2">{tagline}</p>
           <h2 className="text-3xl font-medium text-gray-800 mb-4">{heading}</h2>
@@ -71,7 +71,7 @@ export const ContactFormSection = (props) => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
             <div>
               <Label htmlFor="firstName" className="block mb-2 text-sm font-medium text-gray-700">
                 First name
@@ -153,20 +153,20 @@ export const ContactFormSection = (props) => {
 
           <div>
             <Label className="block mb-3 text-sm font-medium text-gray-700">
-              Which best describes you?
+              Your Role in Education
             </Label>
             <RadioGroup
               onValueChange={(value) => setFormData({ ...formData, description: value })}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              className="grid grid-cols-2 sm:grid-cols-2 gap-4"
             >
               {radioItems.map((item, index) => (
                 <div key={index} className="flex items-center space-x-2">
                   <RadioGroupItem
                     value={item.value}
                     id={item.value}
-                    className="h-4 w-4 text-[#E65F27] focus:ring-[#E65F27]"
+                    className="h-4 w-4  text-[#E65F27] focus:ring-[#E65F27]"
                   />
-                  <Label htmlFor={item.value} className="text-sm font-medium text-gray-700">
+                  <Label htmlFor={item.value} className="text-sm md:font-medium text-gray-700 ">
                     {item.label}
                   </Label>
                 </div>
@@ -207,7 +207,7 @@ export const ContactFormSection = (props) => {
           <div className="text-center">
             <Button
               type="submit"
-              className="w-full md:w-auto px-6 py-3 bg-blue-[#E65F27] text-white font-medium rounded-md hover:bg-[#E65F27] focus:outline-none focus:ring-2 focus:ring-[#E65F27] focus:ring-offset-2"
+              className=" md:w-auto px-6 py-3 bg-[#E65F27] text-white font-medium rounded-full hover:bg-[#E65F27] focus:outline-none focus:ring-2 focus:ring-[#E65F27] focus:ring-offset-2"
             >
               {button.title}
             </Button>

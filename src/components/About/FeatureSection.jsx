@@ -15,14 +15,14 @@ export const FeatureSection = (props) => {
             <h1 className="rb-5 mb-5 text-2xl font-normal leading-[1.2] md:mb-6 md:text-3xl lg:text-4xl">
               {heading}
             </h1>
-            <p className="mb-6 md:mb-8 md:text-md">{description}</p>
+            <p className="mb-6 md:mb-8 text-sm md:text-md">{description}</p>
             <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
               {subHeadings.map((subHeading, index) => (
                 <div key={index}>
                   <h6 className="mb-3 text-md font-normal leading-[1.4] md:mb-4 md:text-xl">
                     {subHeading.title}
                   </h6>
-                  <p>{subHeading.description}</p>
+                  <p className="md:text-md text-sm">{subHeading.description}</p>
                 </div>
               ))}
             </div>

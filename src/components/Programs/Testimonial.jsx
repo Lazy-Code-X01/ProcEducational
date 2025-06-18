@@ -12,8 +12,8 @@ export const TestimonialSection = (props) => {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#f9f9f9]">
       <div className="container">
         <div className="mb-12 w-full md:mb-18 lg:mb-20">
-          <h1 className="mb-5 text-2xl font-normal md:mb-6 md:text-3xl lg:text-4xl">{heading}</h1>
-          <p className="md:text-md">{description}</p>
+          <h1 className="mb-5 text-3xl font-normal md:mb-6 md:text-3xl lg:text-4xl">{heading}</h1>
+          <p className="md:text-md text-sm">{description}</p>
         </div>
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-8 lg:gap-16">
           {testimonials.map((testimonial, index) => (
@@ -46,8 +46,8 @@ const Testimonial = ({ testimonial }) => (
         />
       </div>
       <div className="mb-4 md:mb-0">
-        <p className="font-semibold">{testimonial.name}</p>
-        <p>{testimonial.position}</p>
+        <p className="font-semibold md:text-md text-sm">{testimonial.name}</p>
+        <p className="md:text-md text-sm">{testimonial.position}</p>
       </div>
     </div>
   </div>
