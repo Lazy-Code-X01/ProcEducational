@@ -1,4 +1,6 @@
 import { BiSolidStar } from 'react-icons/bi';
+import Testimonial2 from '../../assets/Testimonial2.png';
+import Testimonial3 from '../../assets/Testimonial3.png';
 
 export const TestimonialSection = (props) => {
   const { heading, description, testimonials } = {
@@ -10,7 +12,7 @@ export const TestimonialSection = (props) => {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="mb-12 w-full md:mb-18 lg:mb-20">
-          <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
+          <h1 className="mb-5 text-2xl font-normal md:mb-6 md:text-3xl lg:text-4xl">{heading}</h1>
           <p className="md:text-md">{description}</p>
         </div>
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-8 lg:gap-16">
@@ -32,7 +34,7 @@ const Testimonial = ({ testimonial }) => (
           <BiSolidStar key={starIndex} className="size-6" />
         ))}
     </div>
-    <blockquote className="text-md font-bold leading-[1.4] md:text-xl">
+    <blockquote className="text-md font-normal leading-[1.4] md:text-lg">
       {testimonial.quote}
     </blockquote>
     <div className="mt-6 flex w-full flex-col gap-3 md:mt-8 md:w-auto md:flex-row md:items-center md:gap-5">
@@ -47,47 +49,34 @@ const Testimonial = ({ testimonial }) => (
         <p className="font-semibold">{testimonial.name}</p>
         <p>{testimonial.position}</p>
       </div>
-      <div className="hidden w-px self-stretch bg-black md:block" />
-      <div>
-        <img src={testimonial.logo.src} alt={testimonial.logo.alt} className="max-h-12" />
-      </div>
     </div>
   </div>
 );
 
 export const Testimonial5Defaults = {
-  heading: 'Customer testimonials',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  heading: 'Customer Testimonials',
+  description: 'ProC transformed our educational experience beyond borders.',
   testimonials: [
     {
       numberOfStars: 5,
       quote:
-        '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."',
+        '"Working with ProC opened doors I never knew existed. Their support was invaluable in our partnership journey."',
       avatar: {
-        src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg',
+        src: Testimonial2,
         alt: 'Testimonial avatar 1',
       },
-      name: 'Name Surname',
-      position: 'Position, Company name',
-      logo: {
-        src: 'https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg',
-        alt: 'Webflow logo 1',
-      },
+      name: 'John doe',
+      position: 'Director, Global Initiatives',
     },
     {
       numberOfStars: 5,
-      quote:
-        '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."',
+      quote: `"The guidance from ProC was instrumental in our program's success. Their expertise made all the difference in our approach to international education."`,
       avatar: {
-        src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg',
+        src: Testimonial3,
         alt: 'Testimonial avatar 2',
       },
-      name: 'Name Surname',
-      position: 'Position, Company name',
-      logo: {
-        src: 'https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg',
-        alt: 'Webflow logo 2',
-      },
+      name: 'Jane Smith',
+      position: 'Coordinator, Education Hub',
     },
   ],
 };

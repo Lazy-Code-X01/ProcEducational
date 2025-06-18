@@ -1,3 +1,5 @@
+import Program2 from '../../assets/Programs2.png';
+
 export const FeatureSection2 = (props) => {
   const { heading, description, image, subHeadings } = {
     ...Layout197Defaults,
@@ -5,21 +7,21 @@ export const FeatureSection2 = (props) => {
   };
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#f9f9f9]">
       <div className="container">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-x-20">
           <div className="order-2 md:order-1">
             <img src={image.src} className="w-full object-cover" alt={image.alt} />
           </div>
           <div className="order-1 md:order-2">
-            <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
+            <h3 className="mb-5 text-2xl font-normal leading-[1.2] md:mb-6 md:text-3xl lg:text-4xl">
               {heading}
             </h3>
             <p className="mb-6 md:mb-8 md:text-md">{description}</p>
             <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
               {subHeadings.map((subHeading, index) => (
                 <div key={index}>
-                  <h6 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
+                  <h6 className="mb-3 text-md font-normal leading-[1.4] md:mb-4 md:text-xl">
                     {subHeading.title}
                   </h6>
                   <p>{subHeading.description}</p>
@@ -34,23 +36,22 @@ export const FeatureSection2 = (props) => {
 };
 
 export const Layout197Defaults = {
-  heading: 'Long heading is what you see here in this feature section',
+  heading: 'Empowering Communities Through Sister City Partnerships and Global Engagement',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.',
+    'Our Sister City Partnerships foster meaningful connections between communities across the globe. We specialize in proposal drafting and engagement facilitation to ensure successful collaborations.',
   image: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg',
+    src: Program2,
     alt: 'Relume placeholder image',
   },
   subHeadings: [
     {
-      title: 'Subheading one',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.',
+      title: 'Engagement Strategies',
+      description: 'Facilitating dialogue and collaboration for impactful community partnerships.',
     },
     {
-      title: 'Subheading two',
+      title: 'Proposal Development',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.',
+        'Crafting tailored proposals to secure funding and support for your initiatives.',
     },
   ],
 };
