@@ -7,7 +7,7 @@ export const AboutHero = (props) => {
   return (
     <section
       id="relume"
-      className="px-[5%] py-16 md:py-24 lg:py-28  relative bg-gradient-to-r from-[#92B2E3] via-[#DADADA] to-[#E65F27]"
+      className="px-[5%] py-16 md:py-24 lg:py-28  relative bg-[linear-gradient(to_right,_#a7c5eb,_#d2b0b0,_#ed774d)]"
     >
       <div className="container  relative top-10">
         <div className="w-full max-w-2xl">
