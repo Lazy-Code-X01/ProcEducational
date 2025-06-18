@@ -20,7 +20,7 @@ export const FeaturesListSection = (props) => {
               <h2 className="mb-5 text-2xl font-normal md:mb-6 md:text-3xl lg:text-5xl">
                 {heading}
               </h2>
-              <p className="md:text-md text-medium from-neutral-600">{description}</p>
+              <p className="md:text-md text-sm font-normal">{description}</p>
             </div>
           </div>
 
@@ -30,7 +30,7 @@ export const FeaturesListSection = (props) => {
                 <div className="rb-5 mb-5 md:mb-6">
                   <img src={section.icon.src} className="size-6" alt={section.icon.alt} />
                 </div>
-                <h3 className="mb-5 text-2xl font-normal md:mb-6 md:text-3xl md:leading-[1.3] lg:text-3xl">
+                <h3 className="mb-5 text-xl font-normal md:mb-6 md:text-3xl md:leading-[1.3] lg:text-3xl">
                   {section.heading}
                 </h3>
                 <p className="text-sm">{section.description}</p>
@@ -39,26 +39,20 @@ export const FeaturesListSection = (props) => {
           </div>
 
           <div className="mt-10 flex items-center gap-4 md:mt-14 lg:mt-16">
-            {buttons.map((button, index) => {
-              const isLearnmore = button.title.toLowerCase() === 'Learn More';
-              const isContact = button.title.toLowerCase() === 'Contact';
-
-              return (
-                <Button
-                  key={index}
-                  {...button}
-                  className={`px-4 py-2 rounded-full font-semibold flex cursor-pointer ${
-                    isLearnmore
-                      ? 'bg-white border-gray-100 text-black'
-                      : isContact
-                        ? 'border border-white text-black-700'
-                        : ''
-                  }`}
-                >
-                  {button.title}
-                </Button>
-              );
-            })}
+            {buttons.map((button, index) => (
+              <Button
+                key={index}
+                variant={button.variant || 'primary'}
+                className={`flex gap-2
+                              ${button.title.toLowerCase() === 'Learn More' ? 'bg-[#ffff] text-black !border-gray-300' : ''}
+                              ${button.title.toLowerCase() === 'Contact' ? '!border   !text-black' : ''}
+                              rounded-full font-semibold text-sm
+                            `}
+                {...button}
+              >
+                {button.title}
+              </Button>
+            ))}
           </div>
         </div>
       </div>

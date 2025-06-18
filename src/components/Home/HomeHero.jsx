@@ -10,33 +10,27 @@ const HomeHero = (props) => {
   return (
     <section id="relume" className="relative px-[5%]">
       <div className="container relative z-10 top-20">
-        <div className="flex max-h-[90rem] min-h-svh items-center py-16 md:py-24 lg:py-28">
+        <div className="flex max-h-[90rem] min-h-svh items-center py-26 md:py-24 lg:py-28">
           <div className="max-w-xl ">
-            <h1 className="mb-5 text-6xl font-normal text-text-alternative text-white md:mb-6 md:text-4xl lg:text-10xl">
+            <h1 className="mb-5 text-4xl font-normal text-text-alternative text-white md:mb-6 md:text-4xl lg:text-10xl">
               {heading}
             </h1>
-            <p className="text-text-alternative text-white md:text-md">{description}</p>
+            <p className="text-text-alternative text-white text-sm md:text-md">{description}</p>
             <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-              {buttons.map((button, index) => {
-                const isBook = button.title.toLowerCase() === 'Book';
-                const isLearn = button.title.toLowerCase() === 'Learn';
-
-                return (
-                  <Button
-                    key={index}
-                    {...button}
-                    className={`px-6 py-2 rounded-full font-medium ${
-                      isBook
-                        ? 'bg-white text-black'
-                        : isLearn
-                          ? 'border border-white text-white'
-                          : ''
-                    }`}
-                  >
-                    {button.title}
-                  </Button>
-                );
-              })}
+              {buttons.map((button, index) => (
+                <Button
+                  key={index}
+                  variant={button.variant || 'primary'}
+                  className={`
+                               ${button.title.toLowerCase() === 'book' ? 'bg-[#ffff] text-black' : ''}
+                               ${button.title.toLowerCase() === 'learn' ? '!text-white' : ''}
+                               rounded-full font-semibold
+                             `}
+                  {...button}
+                >
+                  {button.title}
+                </Button>
+              ))}
             </div>
           </div>
         </div>

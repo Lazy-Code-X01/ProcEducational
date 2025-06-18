@@ -11,7 +11,7 @@ export const FeatureSection = (props) => {
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
-            <h1 className="rb-5 mb-5 text-4xl font-normal md:mb-6 md:text-5xl lg:text-4xl">
+            <h1 className="rb-5 mb-5 text-2xl font-normal md:mb-6 md:text-3xl lg:text-4xl">
               {heading}
             </h1>
             <p className="md:text-md">{description}</p>

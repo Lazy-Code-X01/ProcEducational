@@ -8,54 +8,48 @@ export const ContactHero = (props) => {
   };
 
   return (
-    <section id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container relative z-10 max-w-lg text-center">
+    <section id="relume" className="relative px-[5%] py-26  md:py-24 lg:py-28">
+      <div className="container relative flex flex-col items-center z-10  text-center">
         <p className="mb-3 text-white font-bold text-text-alternative md:mb-4">{tagline}</p>
-        <h1 className="mb-5 text-6xl text-white font-bold text-text-alternative md:mb-6 md:text-9xl lg:text-10xl">
+        <h1 className="mb-5 text-3xl text-white font-nomral text-text-alternative md:mb-6 md:text-4xl lg:text-5xl">
           {heading}
         </h1>
-        <p className="text-text-alternative text-white md:text-md">{description}</p>
+        <p className="text-text-alternative text-white md:text-md text-sm">{description}</p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-          {buttons.map((button, index) => {
-            const isSubmit = button.title.toLowerCase() === 'submit';
-            const isInquire = button.title.toLowerCase() === 'inquire';
-
-            return (
-              <Button
-                key={index}
-                {...button}
-                className={`px-4 py-2 rounded-full font-semibold flex cursor-pointer ${
-                  isSubmit
-                    ? 'bg-white border-gray-100 text-black'
-                    : isInquire
-                      ? 'border border-gray-300 text-white'
-                      : ''
-                }`}
-              >
-                {button.title}
-              </Button>
-            );
-          })}
+          {buttons.map((button, index) => (
+            <Button
+              key={index}
+              variant={button.variant || 'primary'}
+              className={`
+                  ${button.title.toLowerCase() === 'submit' ? 'bg-white text-black border-gray-300' : ''}
+                  ${button.title.toLowerCase() === 'inquire' ? '  !text-white' : ''}
+                  rounded-full cursor-pointer flex font-semibold md:text-md text-sm
+                `}
+              {...button}
+            >
+              {button.title}
+            </Button>
+          ))}
         </div>
       </div>
       <div className="absolute inset-0 z-0">
         <img src={image.src} className="size-full object-cover" alt={image.alt} />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0" />
       </div>
     </section>
   );
 };
 
 export const Header65Defaults = {
-  tagline: '',
-  heading: '',
-  description: '',
+  tagline: 'Connect',
+  heading: 'Get in Touch',
+  description: 'We’re here to answer your questions and help you explore our educational services.',
   buttons: [
     {
-      title: '',
+      title: 'Submit',
     },
     {
-      title: '',
+      title: 'Inquire',
       variant: 'secondary-alt',
     },
   ],

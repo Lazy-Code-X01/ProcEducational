@@ -17,28 +17,22 @@ export const FeatureSection4 = (props) => {
             <h1 className="rb-5 mb-5 text-2xl font-normal md:mb-6 md:text-3xl lg:text-4xl">
               {heading}
             </h1>
-            <p className="md:text-md">{description}</p>
+            <p className="md:text-md text-sm">{description}</p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              {buttons.map((button, index) => {
-                const isLearnmore = button.title.toLowerCase() === 'Learn More';
-                const isJoin = button.title.toLowerCase() === 'Join Us';
-
-                return (
-                  <Button
-                    key={index}
-                    {...button}
-                    className={`px-4 py-2 rounded-full font-semibold flex cursor-pointer ${
-                      isLearnmore
-                        ? 'bg-white border-gray-100 text-black'
-                        : isJoin
-                          ? 'border border-white text-black-700'
-                          : ''
-                    }`}
-                  >
-                    {button.title}
-                  </Button>
-                );
-              })}
+              {buttons.map((button, index) => (
+                <Button
+                  key={index}
+                  variant={button.variant || 'primary'}
+                  className={`
+                  ${button.title.toLowerCase() === 'learn more' ? ' text-black border-gray-300' : ''}
+                  ${button.title.toLowerCase() === 'join us' ? '  !text-black' : ''}
+                  rounded-full flex font-semibold md:text-md text-sm
+                `}
+                  {...button}
+                >
+                  {button.title}
+                </Button>
+              ))}
             </div>
           </div>
           <div>

@@ -29,8 +29,8 @@ export const Testimonial = (props) => {
               />
             </div>
             <div className="mb-4 md:mb-0">
-              <p className="font-semibold">{name}</p>
-              <p>{position}</p>
+              <p className="font-semibold text-sm">{name}</p>
+              <p className="font-normal text-sm">{position}</p>
             </div>
           </div>
         </div>

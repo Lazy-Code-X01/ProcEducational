@@ -17,10 +17,10 @@ export const FeatureListSection = (props) => {
           <div className="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
             <div className="w-full max-w-3xl">
               <p className="mb-3 font-bold md:mb-4">{tagline}</p>
-              <h2 className="mb-5 text-2sxl font-normal md:mb-6 md:text-3xl lg:text-5xl">
+              <h2 className="mb-5 text-3xl font-normal md:mb-6 md:text-4xl lg:text-5xl">
                 {heading}
               </h2>
-              <p className="md:text-md">{description}</p>
+              <p className="md:text-md text-sm">{description}</p>
             </div>
           </div>
 
@@ -33,7 +33,7 @@ export const FeatureListSection = (props) => {
                 <h3 className="mb-5 text-2xl font-normal md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
                   {section.heading}
                 </h3>
-                <p>{section.description}</p>
+                <p className="md:text-md text-sm">{section.description}</p>
               </div>
             ))}
           </div>

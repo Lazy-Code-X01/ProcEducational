@@ -16,10 +16,10 @@ export const ContactSection = (props) => {
           <div className="mb-12 grid auto-cols-fr grid-cols-1 gap-x-12 gap-y-12 md:mb-20 md:grid-cols-[1fr_.75fr] md:gap-x-20 md:gap-y-16">
             <div className="rb-12 max-w-lg">
               <p className="mb-3 font-bold md:mb-4">{tagline}</p>
-              <h2 className="rb-5 mb-5 text-3xl font-normal md:mb-6 md:text-4xl lg:text-5xl">
+              <h2 className="rb-5 mb-5 text-4xl font-normal md:mb-6 md:text-4xl lg:text-5xl">
                 {heading}
               </h2>
-              <p className="md:text-md">{description}</p>
+              <p className="md:text-md font-medium text-sm">{description}</p>
             </div>
             <div className="flex flex-col">
               <div className="grid auto-cols-fr grid-cols-1 gap-x-4 gap-y-6 py-2">
@@ -30,7 +30,7 @@ export const ContactSection = (props) => {
                       <h3 className="mb-2 text-md font-normal leading-[1.4] md:text-xl">
                         {contact.title}
                       </h3>
-                      <p>{contact.description}</p>
+                      <p className="md:text-md text-sm">{contact.description}</p>
                       {contact.title === 'Office' && contact.button ? (
                         <div className="mt-5 md:mt-6">
                           <Button {...contact.button}>{contact.button.title}</Button>
