@@ -10,34 +10,40 @@ const HomeHero = (props) => {
   return (
     <section id="relume" className="relative px-[5%]">
       <div className="container relative z-10 top-20">
-        <div className="flex max-h-[90rem] min-h-svh items-center py-26 md:py-24 lg:py-28">
-          <div className="max-w-xl ">
-            <h1 className="mb-5 text-4xl font-normal text-text-alternative text-white md:mb-6 md:text-4xl lg:text-10xl">
+        <div className="flex max-h-[90rem] min-h-svh items-center py-30 md:py-24 lg:py-28">
+          <div className="max-w-xl " data-aos="fade-up" data-aos-duration="1000">
+            <h1 className="mb-5 text-4xl  font-normal text-text-alternative text-white md:mb-6 md:text-4xl lg:text-5xl leading-13">
               {heading}
             </h1>
-            <p className="text-text-alternative text-white text-sm md:text-md">{description}</p>
+            <p className="max-w-md text-text-alternative text-white text-sm md:text-md leading-6">
+              {description}
+            </p>
             <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-              {buttons.map((button, index) => (
-                <Button
-                  key={index}
-                  variant={button.variant || 'primary'}
-                  className={`
-                               ${button.title.toLowerCase() === 'book' ? 'bg-[#ffff] text-black' : ''}
-                               ${button.title.toLowerCase() === 'learn' ? '!text-white' : ''}
-                               rounded-full font-semibold
-                             `}
-                  {...button}
-                >
-                  {button.title}
-                </Button>
-              ))}
+              {buttons.map((button, index) => {
+                const isBook = button.title.toLowerCase() === 'book';
+                const isLearn = button.title.toLowerCase() === 'learn';
+
+                return (
+                  <Button
+                    key={index}
+                    variant={button.variant || 'primary'}
+                    className={`
+                      rounded-full font-semibold transition-all duration-200 ease-in-out cursor-pointer
+                      ${isBook ? 'bg-white text-black border border-transparent hover:border-black' : ''}
+                      ${isLearn ? 'border border-white text-white hover:bg-white hover:text-black' : ''}
+                    `}
+                    {...button}
+                  >
+                    {button.title}
+                  </Button>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
       <div className="absolute inset-0 z-0">
         <img src={image.src} className="size-full object-cover" alt={image.alt} />
-        {/* <div className="absolute inset-0 bg-black/50" /> */}
       </div>
     </section>
   );

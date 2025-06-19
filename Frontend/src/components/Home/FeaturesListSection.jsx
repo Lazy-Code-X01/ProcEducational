@@ -25,34 +25,51 @@ export const FeaturesListSection = (props) => {
           </div>
 
           <div className="grid grid-cols-1 items-start justify-center gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
-            {sections.map((section, index) => (
-              <div key={index} className="flex w-full flex-col items-center text-center">
-                <div className="rb-5 mb-5 md:mb-6">
-                  <img src={section.icon.src} className="size-6" alt={section.icon.alt} />
+            {sections.map((section, index) => {
+              const animations = ['fade-up', 'zoom-in', 'fade-up'];
+              const animation = animations[index % animations.length];
+
+              return (
+                <div
+                  key={index}
+                  className="flex w-full flex-col items-center text-center"
+                  data-aos={animation}
+                  data-aos-delay={index * 100}
+                  data-aos-duration="1000"
+                >
+                  <div className="rb-5 mb-5 md:mb-6">
+                    <img src={section.icon.src} className="size-6" alt={section.icon.alt} />
+                  </div>
+                  <h3 className="mb-5 text-xl font-normal md:mb-6 md:text-3xl md:leading-[1.3] lg:text-3xl">
+                    {section.heading}
+                  </h3>
+                  <p className="text-sm">{section.description}</p>
                 </div>
-                <h3 className="mb-5 text-xl font-normal md:mb-6 md:text-3xl md:leading-[1.3] lg:text-3xl">
-                  {section.heading}
-                </h3>
-                <p className="text-sm">{section.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-10 flex items-center gap-4 md:mt-14 lg:mt-16">
-            {buttons.map((button, index) => (
-              <Button
-                key={index}
-                variant={button.variant || 'primary'}
-                className={`flex gap-2
-                              ${button.title.toLowerCase() === 'Learn More' ? 'bg-[#ffff] text-black !border-gray-300' : ''}
-                              ${button.title.toLowerCase() === 'Contact' ? '!border   !text-black' : ''}
-                              rounded-full font-semibold text-sm
-                            `}
-                {...button}
-              >
-                {button.title}
-              </Button>
-            ))}
+            {buttons.map((button, index) => {
+              const title = button.title.toLowerCase();
+              const isLearnMore = title === 'learn more';
+              const isContact = title === 'contact';
+
+              return (
+                <Button
+                  key={index}
+                  variant={button.variant || 'primary'}
+                  className={`
+                    flex gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-all duration-200 ease-in-out cursor-pointer
+                    ${isLearnMore ? ' text-black border border-gray-300 hover:border-black' : ''}
+                    ${isContact ? 'text-black border border-transparent hover:border-gray-300 bg-transparent' : ''}
+                  `}
+                  {...button}
+                >
+                  {button.title}
+                </Button>
+              );
+            })}
           </div>
         </div>
       </div>

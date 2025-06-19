@@ -10,7 +10,7 @@ export const Testimonial = (props) => {
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
+      <div className="container" data-aos="zoom-in-down" data-aos-duration="1000">
         <div className="mx-auto w-full max-w-2xl text-center">
           <div className="mb-6 flex items-center justify-center md:mb-8">
             {Array(numberOfStars)

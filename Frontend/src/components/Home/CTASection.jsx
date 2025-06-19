@@ -12,15 +12,16 @@ export const Cta = (props) => {
       <div className="container grid grid-rows-1 items-start gap-y-5 md:grid-cols-2 md:gap-x-12 md:gap-y-8 lg:gap-x-20 lg:gap-y-16">
         <h1 className="text-3xl font-normal md:text-4xl lg:text-5xl">{heading}</h1>
         <div>
-          <p className="md:text-md text-sm">{description}</p>
+          <p className="md:text-md text-md">{description}</p>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
             {buttons.map((button, index) => (
               <Button
                 key={index}
                 variant={button.variant || 'primary'}
                 className={`
-                  ${button.title.toLowerCase() === 'book a consultation' ? 'bg-[#E65F27] text-white' : ''}
-                  ${button.title.toLowerCase() === 'learn more' ? '!border !border-gray-300 !text-black' : ''}
+                  cursor-pointer transition-all duration-200 ease-in-out
+                  ${button.title.toLowerCase() === 'book a consultation' ? 'bg-[#E65F27] text-white border border-transparent hover:border-[#E65F27]' : ''}
+                  ${button.title.toLowerCase() === 'learn more' ? '!border !border-gray-300 text-black hover:bg-[#E65F27] hover:text-white' : ''}
                   rounded-full font-semibold
                 `}
                 {...button}

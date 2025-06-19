@@ -1,13 +1,27 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import MainLayout from './layout/MainLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Programs from './pages/Programs';
 import Contact from './pages/Contact';
+import { useEffect } from 'react';
+import useScrollToTop from './utils/useScrollToTop';
 
 function App() {
+  useEffect(() => {
+    AOS.init({});
+  }, []);
+
+  function ScrollHandler() {
+    useScrollToTop();
+    return null;
+  }
+
   return (
     <Router>
+      <ScrollHandler />
       <Routes>
         <Route
           path="/"

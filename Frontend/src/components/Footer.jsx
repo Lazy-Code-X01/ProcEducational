@@ -7,7 +7,7 @@ const Footer = (props) => {
   };
 
   return (
-    <footer id="relume" className="px-[5%] py-12 md:py-18 lg:py-20 bg-[#f9f9f9f9]">
+    <footer id="relume" className="px-[5%] py-12 md:py-18 lg:py-20 bg-[#fff]">
       <div className="container">
         <div className="flex flex-col items-center pb-12 md:pb-18 lg:pb-20">
           <a href={logo.url} className="mb-8">

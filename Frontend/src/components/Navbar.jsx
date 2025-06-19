@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button, useMediaQuery } from '@relume_io/relume-ui';
 import { AnimatePresence, motion } from 'framer-motion';
 import LogoImage from '../assets/logo.png';
+import { useNavigate } from 'react-router-dom';
 import { RxChevronDown } from 'react-icons/rx';
 
 const Navbar = (props) => {
@@ -13,6 +14,7 @@ const Navbar = (props) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useMediaQuery('(max-width: 991px)');
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +40,11 @@ const Navbar = (props) => {
           </a>
           <div className="hidden lg:flex items-center gap-6 ">
             {navLinks.map((navLink, index) => (
-              <a key={index} href={navLink.url} className="text-base font-medium">
+              <a
+                key={index}
+                onClick={() => navigate(navLink.url)}
+                className="text-base font-medium cursor-pointer"
+              >
                 {navLink.title}
               </a>
             ))}
@@ -105,7 +111,14 @@ const Navbar = (props) => {
           >
             <div className="flex flex-col items-center gap-6 pt-6">
               {navLinks.map((navLink, index) => (
-                <a key={index} href={navLink.url} className="text-lg">
+                <a
+                  key={index}
+                  onClick={() => {
+                    navigate(navLink.url);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-lg cursor-pointer"
+                >
                   {navLink.title}
                 </a>
               ))}
@@ -138,14 +151,14 @@ export const Navbar1Defaults = {
     alt: 'Logo image',
   },
   navLinks: [
-    { title: 'Home', url: '#' },
-    { title: 'About Us', url: '#' },
-    { title: 'Programs', url: '#' },
-    { title: 'Contact', url: '#' },
+    { title: 'Home', url: '/' },
+    { title: 'About Us', url: '/about' },
+    { title: 'Programs', url: '/programs' },
+    { title: 'Contact', url: '/contact' },
   ],
   buttons: [
     { title: 'Learn', variant: 'secondary', size: 'sm' },
-    { title: 'Start', size: 'sm' }, // Will get orange color
+    { title: 'Start', size: 'sm' },
   ],
 };
 
