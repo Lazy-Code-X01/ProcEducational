@@ -14,20 +14,23 @@ export const FeatureSection2 = (props) => {
         <div className="mb-12 grid grid-cols-1 items-start justify-between gap-x-12 gap-y-5 md:mb-18 md:grid-cols-2 md:gap-x-12 md:gap-y-8 lg:mb-20 lg:gap-x-20">
           <div>
             <p className="mb-3 font-bold md:mb-4">{tagline}</p>
-            <h3 className="text-2xl font-normal leading-[1.2] md:text-3xl lg:text-4xl">
+            <h3 className="text-2xl font-normal leading-[1.2] md:text-3xl lg:text-5xl">
               {heading}
             </h3>
           </div>
           <div>
-            <p className="md:text-md text-sm">{description}</p>
+            <p className="md:text-md text-md" data-aos="fade-down" data-aos-duration="1000">
+              {description}
+            </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
               {buttons.map((button, index) => (
                 <Button
                   key={index}
                   variant={button.variant || 'primary'}
                   className={`
-                  ${button.title.toLowerCase() === 'learn more' ? ' text-black border-gray-300' : ''}
-                  ${button.title.toLowerCase() === 'join us' ? '  !text-black' : ''}
+                    flex gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-all duration-200 ease-in-out cursor-pointer
+                  ${button.title.toLowerCase() === 'learn more' ? '  text-black border border-gray-300 hover:border-black' : ''}
+                  ${button.title.toLowerCase() === 'join us' ? '  text-black border border-transparent hover:border-gray-300 bg-transparent' : ''}
                   rounded-full flex font-semibold md:text-md text-sm
                 `}
                   {...button}

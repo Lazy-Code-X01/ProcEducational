@@ -5,15 +5,11 @@ export const AboutHero = (props) => {
   };
 
   return (
-    <section
-      id="relume"
-      className="px-[5%] py-16 md:py-24 lg:py-28  relative bg-[linear-gradient(to_right,_#ed774d,_#d2b0b0,_#a7c5eb)]"
-    >
-      <div className="container  relative top-10">
-        <div className="w-full max-w-2xl">
-          <h1 className="mb-5 text-3xl font-normal md:mb-6 md:text-5xl lg:text-6xl">{heading}</h1>
-          <p className="md:text-md text-sm">{description}</p>
-        </div>
+    <section className="relative text-center px-[5%] py-24 md:py-32 bg-[linear-gradient(to_left,_#92B2E3,_#E65F27)] text-white">
+      <div className="container max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+        <div className="inline-block border-t-4 border-white mb-6 w-16"></div>
+        <h1 className="text-5xl font-bold mb-4">{heading}</h1>
+        <p className="text-md">{description}</p>
       </div>
     </section>
   );

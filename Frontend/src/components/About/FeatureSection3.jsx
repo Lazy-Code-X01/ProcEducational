@@ -11,7 +11,7 @@ export const FeatureSection3 = (props) => {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
-          <div>
+          <div data-aos="fade-right" data-aos-duration="1000">
             <div className="rb-5 mb-5 md:mb-6">
               <img src={icon.src} className="size-8" alt={icon.alt} />
             </div>
