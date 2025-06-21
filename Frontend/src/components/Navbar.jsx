@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button, useMediaQuery } from '@relume_io/relume-ui';
 import { AnimatePresence, motion } from 'framer-motion';
 import LogoImage from '../assets/logo.png';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { RxChevronDown } from 'react-icons/rx';
 
 const Navbar = (props) => {
@@ -15,6 +15,7 @@ const Navbar = (props) => {
   const isMobile = useMediaQuery('(max-width: 991px)');
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +44,11 @@ const Navbar = (props) => {
               <a
                 key={index}
                 onClick={() => navigate(navLink.url)}
-                className="text-base font-medium cursor-pointer"
+                className={`text-base font-medium cursor-pointer transition-colors duration-200 ${
+                  location.pathname === navLink.url
+                    ? 'text-[#E65F27] font-extrabold'
+                    : 'text-gray-700 hover:text-[#E65F27]'
+                }`}
               >
                 {navLink.title}
               </a>
@@ -61,11 +66,11 @@ const Navbar = (props) => {
               <Button
                 key={index}
                 {...button}
-                className={`px-6 py-2 rounded-full font-medium ${
+                className={`px-6 py-2 rounded-full font-medium cursor-pointer transition-all duration-300  ${
                   isStart
                     ? 'bg-[#E65F27] text-white'
                     : isLearn
-                      ? 'border border-gray-500 text-gray-700'
+                      ? 'border border-gray-500 text-gray-700 hover:bg-[#f0e8e5]'
                       : ''
                 }`}
               >
@@ -117,7 +122,11 @@ const Navbar = (props) => {
                     navigate(navLink.url);
                     setIsMobileMenuOpen(false);
                   }}
-                  className="text-lg cursor-pointer"
+                  className={`text-lg cursor-pointer transition-colors duration-200 ${
+                    location.pathname === navLink.url
+                      ? 'text-[#E65F27] font-semibold'
+                      : 'text-gray-700 hover:text-[#E65F27]'
+                  }`}
                 >
                   {navLink.title}
                 </a>

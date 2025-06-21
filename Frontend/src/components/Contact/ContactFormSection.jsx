@@ -15,8 +15,11 @@ import {
   Textarea,
   Button,
 } from '@relume_io/relume-ui';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 export const ContactFormSection = (props) => {
+  const [loading, setLoading] = useState(false);
   const { tagline, heading, description, button } = {
     ...Contact2Defaults,
     ...props,
@@ -33,9 +36,80 @@ export const ContactFormSection = (props) => {
     acceptTerms: false,
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
+
+    if (!formData.firstName.trim()) {
+      toast.error('First name is required.');
+      return;
+    }
+
+    if (!formData.lastName.trim()) {
+      toast.error('Last name is required.');
+      return;
+    }
+
+    if (!formData.email.trim()) {
+      toast.error('Email is required.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error('Please enter a valid email address.');
+      return;
+    }
+
+    if (!formData.phone.trim()) {
+      toast.error('Phone number is required.');
+      return;
+    }
+
+    if (!formData.topic) {
+      toast.error('Please select a topic.');
+      return;
+    }
+
+    if (!formData.description) {
+      toast.error('Please select your role.');
+      return;
+    }
+
+    if (!formData.message.trim()) {
+      toast.error('Message is required.');
+      return;
+    }
+
+    if (!formData.acceptTerms) {
+      toast.error('Please accept the terms and conditions.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await axios.post('http://localhost:5000/api/send-email', formData);
+
+      if (res.data.success) {
+        toast.success('Message sent successfully!');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          topic: '',
+          description: '',
+          message: '',
+          acceptTerms: false,
+        });
+      } else {
+        toast.error('Something went wrong.');
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Failed to send message.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -207,9 +281,10 @@ export const ContactFormSection = (props) => {
           <div className="text-center">
             <Button
               type="submit"
-              className=" md:w-auto px-6 py-3 bg-[#E65F27] text-white font-medium rounded-full hover:bg-[#E65F27] focus:outline-none focus:ring-2 focus:ring-[#E65F27] focus:ring-offset-2"
+              disabled={loading}
+              className=" cursor-pointer md:w-auto px-6 py-3 bg-[#E65F27] text-white font-medium rounded-full hover:bg-[#E65F27] focus:outline-none focus:ring-2 focus:ring-[#E65F27] focus:ring-offset-2"
             >
-              {button.title}
+              {loading ? 'Sending...' : button.title}
             </Button>
           </div>
         </form>

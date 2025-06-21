@@ -8,6 +8,7 @@ import Programs from './pages/Programs';
 import Contact from './pages/Contact';
 import { useEffect } from 'react';
 import useScrollToTop from './utils/useScrollToTop';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <Router>
+      <Toaster position="top-right" />
       <ScrollHandler />
       <Routes>
         <Route
