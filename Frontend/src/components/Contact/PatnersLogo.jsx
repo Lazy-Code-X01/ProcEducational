@@ -1,3 +1,6 @@
+import IgIcon from '../../assets/IgIcon.png';
+import FbIcon from '../../assets/FbIcon.png';
+
 export const PatnersLogo = (props) => {
   const { heading, logos } = {
     ...Logo1Defaults,
@@ -12,7 +15,9 @@ export const PatnersLogo = (props) => {
         </h1>
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 pb-2 pt-4 md:pt-2">
           {logos.map((logo, index) => (
-            <img key={index} src={logo.src} alt={logo.alt} className="max-h-12 md:max-h-14" />
+            <a href={logo.href}>
+              <img key={index} src={logo.src} alt={logo.alt} className="max-h-12 md:max-h-14" />
+            </a>
           ))}
         </div>
       </div>
@@ -23,8 +28,11 @@ export const PatnersLogo = (props) => {
 export const Logo1Defaults = {
   heading: 'Connect with us on social media',
   logos: [
-    { src: 'https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg', alt: 'Webflow logo 1' },
-    { src: 'https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg', alt: 'Relume logo 1' },
-    { src: 'https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg', alt: 'Webflow logo 2' },
+    {
+      src: FbIcon,
+      alt: 'Facebook logo 1',
+      href: 'https://www.facebook.com/share/16i2yN5x8U/?mibextid=wwXIfr',
+    },
+    { src: IgIcon, alt: 'Instagram logo 2', href: 'https://www.instagram.com/proceduservices/' },
   ],
 };

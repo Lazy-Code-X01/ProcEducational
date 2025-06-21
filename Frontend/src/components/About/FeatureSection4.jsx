@@ -24,8 +24,9 @@ export const FeatureSection4 = (props) => {
                   key={index}
                   variant={button.variant || 'primary'}
                   className={`
-                  ${button.title.toLowerCase() === 'learn more' ? ' text-black border-gray-300' : ''}
-                  ${button.title.toLowerCase() === 'join us' ? '  !text-black' : ''}
+                    flex gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-all duration-200 ease-in-out cursor-pointer
+                  ${button.title.toLowerCase() === 'learn more' ? '  text-black border border-gray-300 hover:border-black' : ''}
+                  ${button.title.toLowerCase() === 'join us' ? '  text-black border border-transparent hover:border-gray-300 bg-transparent' : ''}
                   rounded-full flex font-semibold md:text-md text-sm
                 `}
                   {...button}

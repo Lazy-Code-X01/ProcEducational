@@ -13,7 +13,7 @@ export const FeatureSection2 = (props) => {
           <div className="order-2 md:order-1">
             <img src={image.src} className="w-full object-cover" alt={image.alt} />
           </div>
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2" data-aos="fade-right" data-aos-duration="1000">
             <h3 className="mb-5 text-3xl font-normal leading-[1.2] md:mb-6 md:text-3xl lg:text-4xl">
               {heading}
             </h3>

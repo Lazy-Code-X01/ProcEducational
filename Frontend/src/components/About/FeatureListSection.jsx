@@ -51,20 +51,20 @@ export const FeatureListSection = (props) => {
 
           <div className="mt-12 flex items-center gap-4 md:mt-18 lg:mt-20">
             {buttons.map((button, index) => {
-              const isLearn = button.title.toLowerCase() === 'Learn More';
-              const isConnect = button.title.toLowerCase() === 'Connect';
+              const title = button.title.toLowerCase();
+              const customStyles =
+                title === 'learn'
+                  ? 'text-black border border-gray-300 hover:border-black'
+                  : title === 'connect'
+                    ? 'text-black border border-transparent hover:border-gray-300 bg-transparent'
+                    : '';
 
               return (
                 <Button
                   key={index}
+                  variant={button.variant || 'primary'}
+                  className={`flex gap-2 rounded-full font-semibold px-6 py-3 transition-all duration-200 ease-in-out cursor-pointer text-sm md:text-md ${customStyles}`}
                   {...button}
-                  className={`flex gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-all duration-200 ease-in-out cursor-pointer ${
-                    isLearn
-                      ? 'bg-white border-gray-100 text-black'
-                      : isConnect
-                        ? 'border border-white text-black-700'
-                        : ''
-                  }`}
                 >
                   {button.title}
                 </Button>
