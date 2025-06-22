@@ -1,14 +1,18 @@
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
 import fetch from 'node-fetch';
-import userEmail from '../userEmail.js';
-import adminEmail from '../adminEmail.js';
+import userEmail from './userEmail.js';
+import adminEmail from './adminEmail.js'
 
-export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ success: false, message: 'Method Not Allowed' });
-    }
+dotenv.config();
+const app = express();
 
+app.use(cors());
+app.use(express.json());
+
+app.post('/api/send-email', async (req, res) => {
     const { firstName, lastName, email, phone, topic, description, message } = req.body;
-
     try {
         const adminHtml = adminEmail({
             firstName,
@@ -20,6 +24,7 @@ export default async function handler(req, res) {
             message,
         });
 
+        // Email to ADMIN
         const adminResponse = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
@@ -34,6 +39,7 @@ export default async function handler(req, res) {
             }),
         });
 
+        // Email to USER
         const fullName = `${firstName} ${lastName}`;
         const subject = topic;
         const userHtml = userEmail(fullName, subject);
@@ -52,10 +58,11 @@ export default async function handler(req, res) {
             }),
         });
 
+
         const adminResult = await adminResponse.json();
         const userResult = await userResponse.json();
 
-        return res.status(200).json({
+        res.status(200).json({
             success: true,
             message: 'Emails sent successfully.',
             adminEmailId: adminResult.id,
@@ -63,6 +70,9 @@ export default async function handler(req, res) {
         });
     } catch (error) {
         console.error('Email sending failed:', error);
-        return res.status(500).json({ success: false, error: error.message });
+        res.status(500).json({ success: false, error: error.message });
     }
-}
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
