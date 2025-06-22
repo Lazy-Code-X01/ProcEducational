@@ -81,7 +81,7 @@ export const Contact15Defaults = {
     {
       icon: <BiMap className="size-6" />,
       title: 'Office',
-      description: '123 Sample St, Sydney NSW 2000 AU',
+      description: 'Columbia SC 29229',
     },
   ],
   image: {

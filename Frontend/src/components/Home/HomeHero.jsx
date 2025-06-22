@@ -1,11 +1,14 @@
 import { Button } from '@relume_io/relume-ui';
 import HomeBg from '../../assets/HomeBg.png';
+import { useNavigate } from 'react-router-dom';
 
 const HomeHero = (props) => {
   const { heading, description, buttons, image } = {
     ...Header5Defaults,
     ...props,
   };
+
+  const navigate = useNavigate();
 
   return (
     <section id="relume" className="relative px-[5%]">
@@ -33,6 +36,7 @@ const HomeHero = (props) => {
                       ${isLearn ? 'border border-white text-white hover:bg-white hover:text-black' : ''}
                     `}
                     {...button}
+                    onClick={() => navigate('/contact')}
                   >
                     {button.title}
                   </Button>

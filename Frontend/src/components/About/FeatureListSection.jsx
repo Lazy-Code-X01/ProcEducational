@@ -3,12 +3,15 @@ import { RxChevronRight } from 'react-icons/rx';
 import Values1 from '../../assets/Values1.png';
 import Values2 from '../../assets/Values2.png';
 import Values3 from '../../assets/Values3.png';
+import { useNavigate } from 'react-router-dom';
 
 export const FeatureListSection = (props) => {
   const { tagline, heading, description, sections, buttons } = {
     ...Layout239Defaults,
     ...props,
   };
+
+  const navigate = useNavigate();
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
@@ -54,7 +57,7 @@ export const FeatureListSection = (props) => {
               const title = button.title.toLowerCase();
               const customStyles =
                 title === 'learn'
-                  ? 'text-black border border-gray-300 hover:border-black'
+                  ? 'text-black border border-gray-300 hover:bg-[#f0e8e5]'
                   : title === 'connect'
                     ? 'text-black border border-transparent hover:border-gray-300 bg-transparent'
                     : '';
@@ -65,6 +68,7 @@ export const FeatureListSection = (props) => {
                   variant={button.variant || 'primary'}
                   className={`flex gap-2 rounded-full font-semibold px-6 py-3 transition-all duration-200 ease-in-out cursor-pointer text-sm md:text-md ${customStyles}`}
                   {...button}
+                  onClick={() => navigate('/contact')}
                 >
                   {button.title}
                 </Button>

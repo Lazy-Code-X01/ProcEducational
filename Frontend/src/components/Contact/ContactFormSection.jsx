@@ -136,7 +136,7 @@ export const ContactFormSection = (props) => {
   ];
 
   return (
-    <section className="flex justify-center items-center min-h-screen">
+    <section className="flex justify-center items-center min-h-screen" id="contact-section">
       <div className="w-full max-w-2xl rounded-lg shadow-md p-4">
         <div className="text-center mb-8">
           <p className="text-sm font-semibold text-gray-500 mb-2">{tagline}</p>
@@ -282,7 +282,10 @@ export const ContactFormSection = (props) => {
             <Button
               type="submit"
               disabled={loading}
-              className=" cursor-pointer md:w-auto px-6 py-3 bg-[#E65F27] text-white font-medium rounded-full hover:bg-[#E65F27] focus:outline-none focus:ring-2 focus:ring-[#E65F27] focus:ring-offset-2"
+              className={`
+                md:w-auto px-6 py-3 font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-[#E65F27] focus:ring-offset-2
+                ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#E65F27] text-white hover:bg-[#E65F27] cursor-pointer'}
+              `}
             >
               {loading ? 'Sending...' : button.title}
             </Button>

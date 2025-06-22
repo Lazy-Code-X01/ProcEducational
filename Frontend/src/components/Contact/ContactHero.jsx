@@ -1,11 +1,15 @@
 import { Button } from '@relume_io/relume-ui';
 import Contact1 from '../../assets/Contact1.png';
 
+import { useNavigate } from 'react-router-dom';
+
 export const ContactHero = (props) => {
   const { tagline, heading, description, buttons, image } = {
     ...Header65Defaults,
     ...props,
   };
+
+  const navigate = useNavigate();
 
   return (
     <section id="relume" className="relative px-[5%] py-26  md:py-24 lg:py-28">
@@ -26,6 +30,12 @@ export const ContactHero = (props) => {
                   rounded-full cursor-pointer flex font-semibold md:text-md text-sm
                 `}
               {...button}
+              onClick={() => {
+                const section = document.getElementById('contact-section');
+                if (section) {
+                  section.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               {button.title}
             </Button>

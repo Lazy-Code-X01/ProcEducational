@@ -1,4 +1,4 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@relume_io/relume-ui';
 
 export const Cta = (props) => {
@@ -6,6 +6,8 @@ export const Cta = (props) => {
     ...Cta13Defaults,
     ...props,
   };
+
+  const navigate = useNavigate();
 
   return (
     <section className="relative px-[5%] py-16 md:py-24 lg:py-28 bg-[#f9f9f9]">
@@ -21,10 +23,11 @@ export const Cta = (props) => {
                 className={`
                   cursor-pointer transition-all duration-200 ease-in-out
                   ${button.title.toLowerCase() === 'book a consultation' ? 'bg-[#E65F27] text-white border border-transparent hover:border-[#E65F27]' : ''}
-                  ${button.title.toLowerCase() === 'learn more' ? '!border !border-gray-300 text-black hover:bg-[#E65F27] hover:text-white' : ''}
+                  ${button.title.toLowerCase() === 'learn more' ? '!border !border-gray-300 text-black hover:bg-[#f0e8e5]' : ''}
                   rounded-full font-semibold
                 `}
                 {...button}
+                onClick={() => navigate('/contact')}
               >
                 {button.title}
               </Button>

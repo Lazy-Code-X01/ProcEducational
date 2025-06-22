@@ -3,7 +3,6 @@ import { Button, useMediaQuery } from '@relume_io/relume-ui';
 import { AnimatePresence, motion } from 'framer-motion';
 import LogoImage from '../assets/logo.png';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { RxChevronDown } from 'react-icons/rx';
 
 const Navbar = (props) => {
   const { logo, navLinks, buttons } = {
@@ -73,6 +72,7 @@ const Navbar = (props) => {
                       ? 'border border-gray-500 text-gray-700 hover:bg-[#f0e8e5]'
                       : ''
                 }`}
+                onClick={() => navigate('/contact')}
               >
                 {button.title}
               </Button>
@@ -155,7 +155,7 @@ export default Navbar;
 // Default Props
 export const Navbar1Defaults = {
   logo: {
-    url: '#',
+    url: '/',
     src: LogoImage,
     alt: 'Logo image',
   },

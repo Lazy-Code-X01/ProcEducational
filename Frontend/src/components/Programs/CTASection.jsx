@@ -1,11 +1,14 @@
 import { Button } from '@relume_io/relume-ui';
 import Program4 from '../../assets/Programs4.png';
+import { useNavigate } from 'react-router-dom';
 
 export const CTASection = (props) => {
   const { heading, description, buttons, image } = {
     ...Cta41Defaults,
     ...props,
   };
+
+  const navigate = useNavigate();
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 ">
@@ -31,6 +34,7 @@ export const CTASection = (props) => {
                   rounded-full flex font-semibold md:text-md text-sm
                 `}
                 {...button}
+                onClick={() => navigate('/contact')}
               >
                 {button.title}
               </Button>

@@ -1,12 +1,15 @@
 import { Button } from '@relume_io/relume-ui';
 import { RxChevronRight } from 'react-icons/rx';
 import About4 from '../../assets/About4.png';
+import { useNavigate } from 'react-router-dom';
 
 export const FeatureSection4 = (props) => {
   const { tagline, heading, description, buttons, image } = {
     ...Layout1Defaults,
     ...props,
   };
+
+  const navigate = useNavigate();
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#f9f9f9f9]">
@@ -25,11 +28,12 @@ export const FeatureSection4 = (props) => {
                   variant={button.variant || 'primary'}
                   className={`
                     flex gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-all duration-200 ease-in-out cursor-pointer
-                  ${button.title.toLowerCase() === 'learn more' ? '  text-black border border-gray-300 hover:border-black' : ''}
+                  ${button.title.toLowerCase() === 'learn more' ? '  text-black border border-gray-300 hover:bg-[#f0e8e5]' : ''}
                   ${button.title.toLowerCase() === 'join us' ? '  text-black border border-transparent hover:border-gray-300 bg-transparent' : ''}
                   rounded-full flex font-semibold md:text-md text-sm
                 `}
                   {...button}
+                  onClick={() => navigate('/contact')}
                 >
                   {button.title}
                 </Button>

@@ -19,7 +19,7 @@ export const FeatureSection = (props) => {
             <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
               {subHeadings.map((subHeading, index) => (
                 <div key={index}>
-                  <h6 className="mb-3 text-md font-normal leading-[1.4] md:mb-4 md:text-xl">
+                  <h6 className="mb-3 text-md font-medium leading-[1.4] md:mb-4 md:text-xl">
                     {subHeading.title}
                   </h6>
                   <p className="md:text-md text-sm">{subHeading.description}</p>

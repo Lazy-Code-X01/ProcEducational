@@ -3,12 +3,15 @@ import { RxChevronRight } from 'react-icons/rx';
 import Education from '../../assets/Edu.png';
 import Global from '../../assets/Global.png';
 import Design from '../../assets/Design.png';
+import { useNavigate } from 'react-router-dom';
 
 export const FeaturesListSection = (props) => {
   const { tagline, heading, description, sections, buttons } = {
     ...Layout237Defaults,
     ...props,
   };
+
+  const navigate = useNavigate();
 
   return (
     <section id="relume" className="bg-[#f9f9f9] px-[5%] py-16 md:py-24 lg:py-28">
@@ -61,10 +64,11 @@ export const FeaturesListSection = (props) => {
                   variant={button.variant || 'primary'}
                   className={`
                     flex gap-2 rounded-full font-semibold text-sm px-6 py-3 transition-all duration-200 ease-in-out cursor-pointer
-                    ${isLearnMore ? ' text-black border border-gray-300 hover:border-black' : ''}
+                    ${isLearnMore ? ' text-black border border-gray-300 hover:bg-[#f0e8e5]' : ''}
                     ${isContact ? 'text-black border border-transparent hover:border-gray-300 bg-transparent' : ''}
                   `}
                   {...button}
+                  onClick={() => navigate('/contact')}
                 >
                   {button.title}
                 </Button>
