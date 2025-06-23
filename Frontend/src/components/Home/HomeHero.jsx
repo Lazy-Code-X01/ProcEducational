@@ -15,7 +15,8 @@ const HomeHero = (props) => {
       <div className="container relative z-10 top-20">
         <div className="flex max-h-[90rem] min-h-svh items-center py-30 md:py-24 lg:py-28">
           <div className="max-w-xl " data-aos="fade-up" data-aos-duration="1000">
-            <h1 className="mb-5 text-4xl  font-normal text-text-alternative text-white md:mb-6 md:text-4xl lg:text-5xl leading-13">
+            {/* <h1 className="mb-5 text-4xl  font-normal text-text-alternative text-white md:mb-6 md:text-4xl lg:text-5xl leading-13"> */}
+            <h1 className="mb-5 text-4xl font-normal text-text-alternative text-white leading-tight md:mb-6 md:text-4xl md:leading-snug lg:text-5xl lg:leading-[1.3]">
               {heading}
             </h1>
             <p className="max-w-md text-text-alternative text-white text-sm md:text-md leading-6">

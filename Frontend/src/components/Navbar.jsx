@@ -138,6 +138,10 @@ const Navbar = (props) => {
                   className={`w-full ${
                     button.title.toLowerCase() === 'start' ? 'bg-[#E65F27] text-white' : ''
                   }`}
+                  onClick={() => {
+                    navigate('/contact');
+                    setIsMobileMenuOpen(false);
+                  }}
                 >
                   {button.title}
                 </Button>
