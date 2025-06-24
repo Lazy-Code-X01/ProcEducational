@@ -1,7 +1,7 @@
 import IgIcon from '../../assets/IgIcon.png';
 import FbIcon from '../../assets/FbIcon.png';
 
-export const PatnersLogo = (props) => {
+export const SocialsLogo = (props) => {
   const { heading, logos } = {
     ...Logo1Defaults,
     ...props,
