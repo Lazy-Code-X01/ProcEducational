@@ -2,7 +2,7 @@ import React from 'react';
 import { ContactHero } from '../components/Contact/ContactHero';
 import { ContactSection } from '../components/Contact/ContactSection';
 import { ContactFormSection } from '../components/Contact/ContactFormSection';
-import { PatnersLogo } from '../components/Contact/PatnersLogo';
+import { SocialsLogo } from '../components/Contact/SocialsLogo';
 
 const Contact = () => {
   return (
@@ -10,7 +10,7 @@ const Contact = () => {
       <ContactHero />
       <ContactSection />
       <ContactFormSection />
-      <PatnersLogo />
+      <SocialsLogo />
     </div>
   );
 };
