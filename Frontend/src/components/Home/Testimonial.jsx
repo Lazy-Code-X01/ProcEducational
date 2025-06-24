@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BiSolidStar, BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import Testimonial2 from '../../assets/Testimonial2.png';
 import Testimonial3 from '../../assets/Testimonial3.png';
 
 export const Testimonials = (props) => {
-  const { heading, testimonials } = {
+  const { testimonials } = {
     ...Testimonial5Defaults,
     ...props,
   };
@@ -12,16 +12,40 @@ export const Testimonials = (props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fadeState, setFadeState] = useState('fade-in');
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const containerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || isDragging) return;
 
     const interval = setInterval(() => {
       goToNext();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [currentIndex, isAutoPlaying]);
+  }, [currentIndex, isAutoPlaying, isDragging]);
+
+  const handleDragStart = (e) => {
+    setIsDragging(true);
+    setIsAutoPlaying(false);
+    setStartX(e.type.includes('touch') ? e.touches[0].pageX : e.pageX);
+    setScrollLeft(containerRef.current.scrollLeft);
+  };
+
+  const handleDragMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.type.includes('touch') ? e.touches[0].pageX : e.pageX;
+    const walk = (x - startX) * 2;
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+    setTimeout(() => setIsAutoPlaying(true), 3000);
+  };
 
   const goToNext = () => {
     setFadeState('fade-out');
@@ -41,88 +65,76 @@ export const Testimonials = (props) => {
 
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#f9f9f9]">
-      <div className="container">
-        <div className="mb-12 w-full md:mb-18 lg:mb-20" data-aos="fade-up">
-          <h1 className="mb-5 text-center text-3xl font-normal md:mb-6 md:text-3xl lg:text-4xl">
-            {heading}
-          </h1>
-        </div>
-
-        <div className="relative flex items-center justify-center">
-          <button
-            onClick={() => {
-              setIsAutoPlaying(false);
-              goToPrev();
-            }}
-            className="absolute left-0 z-10 p-2 text-gray-600 hover:text-orange-500 transition-colors md:p-4"
-            aria-label="Previous testimonial"
-          >
-            <BiChevronLeft className="size-8 md:size-10" />
-          </button>
-
-          <div className={`w-full max-w-2xl transition-opacity duration-300 ${fadeState}`}>
-            <Testimonial testimonial={testimonials[currentIndex]} index={currentIndex} />
+      <div
+        className="container relative"
+        ref={containerRef}
+        // className=""
+        onMouseDown={handleDragStart}
+        onMouseMove={handleDragMove}
+        onMouseUp={handleDragEnd}
+        onMouseLeave={handleDragEnd}
+        onTouchStart={handleDragStart}
+        onTouchMove={handleDragMove}
+        onTouchEnd={handleDragEnd}
+      >
+        <div>
+          <div className={`transition-opacity duration-300 ${fadeState}`}>
+            <Testimonial testimonial={testimonials[currentIndex]} />
           </div>
 
-          <button
-            onClick={() => {
-              setIsAutoPlaying(false);
-              goToNext();
-            }}
-            className="absolute right-0 z-10 p-2 text-gray-600 hover:text-orange-500 transition-colors md:p-4"
-            aria-label="Next testimonial"
-          >
-            <BiChevronRight className="size-8 md:size-10" />
-          </button>
-        </div>
-
-        <div className="mt-8 flex justify-center gap-2">
-          {testimonials.map((_, index) => (
+          <div className="absolute right-0 top-1/3 -translate-y-1/2 flex flex-col space-y-1">
             <button
-              key={index}
               onClick={() => {
                 setIsAutoPlaying(false);
-                setFadeState('fade-out');
-                setTimeout(() => {
-                  setCurrentIndex(index);
-                  setFadeState('fade-in');
-                }, 300);
+                goToPrev();
               }}
-              className={`size-3 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-orange-500' : 'bg-gray-300'
-              }`}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
+              className="p-2 text-gray-600 hover:text-orange-500 transition-colors"
+              aria-label="Previous testimonial"
+            >
+              <BiChevronLeft className="size-4 md:size-8" />
+            </button>
+            <button
+              onClick={() => {
+                setIsAutoPlaying(false);
+                goToNext();
+              }}
+              className="p-2 text-gray-600 hover:text-orange-500 transition-colors"
+              aria-label="Next testimonial"
+            >
+              <BiChevronRight className="size-4 md:size-8" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-const Testimonial = ({ testimonial, index }) => {
+const Testimonial = ({ testimonial }) => {
   return (
-    <div className="mx-auto flex flex-col items-center text-center px-4">
-      <div className="mb-6 flex justify-center">
+    <div className="mx-auto flex max-w-2xl flex-col items-center text-center px-4">
+      <div className="mb-4 md:mb-6 flex justify-center">
         {Array(testimonial.numberOfStars)
           .fill(null)
           .map((_, starIndex) => (
-            <BiSolidStar key={starIndex} className="size-6 text-yellow-400" />
+            <BiSolidStar key={starIndex} className="size-5 md:size-6 text-yellow-400" />
           ))}
       </div>
-      <blockquote className="text-lg font-normal leading-relaxed md:text-xl">
+      <blockquote className="text-base md:text-lg lg:text-xl font-normal leading-relaxed">
         {testimonial.quote}
       </blockquote>
-      <div className="mt-8 flex flex-col items-center">
+      <div className="mt-6 md:mt-8 flex flex-col items-center">
         <img
           src={testimonial.avatar.src}
           alt={testimonial.avatar.alt}
-          className="size-14 rounded-full object-cover"
+          className="size-12 md:size-14 rounded-full object-cover"
           loading="lazy"
         />
-        <div className="mt-4">
-          <p className="font-semibold">{testimonial.name}</p>
-          {testimonial.position && <p className="text-sm text-gray-600">{testimonial.position}</p>}
+        <div className="mt-3 md:mt-4">
+          <p className="text-sm md:text-base font-semibold">{testimonial.name}</p>
+          {testimonial.position && (
+            <p className="text-xs md:text-sm text-gray-600">{testimonial.position}</p>
+          )}
         </div>
       </div>
     </div>
@@ -130,7 +142,6 @@ const Testimonial = ({ testimonial, index }) => {
 };
 
 export const Testimonial5Defaults = {
-  heading: 'Testimonials',
   testimonials: [
     {
       numberOfStars: 5,
