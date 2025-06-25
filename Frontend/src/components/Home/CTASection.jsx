@@ -10,7 +10,7 @@ export const Cta = (props) => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative px-[5%] py-16 md:py-24 lg:py-28 bg-[#f9f9f9]">
+    <section className="relative px-[5%] py-16 md:py-24 lg:py-28 bg-[#fff]">
       <div className="container grid grid-rows-1 items-start gap-y-5 md:grid-cols-2 md:gap-x-12 md:gap-y-8 lg:gap-x-20 lg:gap-y-16">
         <h1 className="text-3xl font-normal md:text-4xl lg:text-5xl">{heading}</h1>
         <div>

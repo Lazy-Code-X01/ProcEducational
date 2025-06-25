@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BiSolidStar, BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import Testimonial2 from '../../assets/Testimonial2.png';
-import Testimonial3 from '../../assets/Testimonial3.png';
+import Testimonial2 from '../../assets/Testimonial.png';
+import Testimonial4 from '../../assets/Testimonial4.jpeg';
+import Testimonial5 from '../../assets/Testimonial5.jpeg';
+import Testimonial6 from '../../assets/Testimonial6.jpeg';
+import Testimonial8 from '../../assets/Testimonial8.jpeg';
+import Testimonial7 from '../../assets/Testimonial7.jpg';
 
 export const Testimonials = (props) => {
   const { testimonials } = {
@@ -64,11 +68,10 @@ export const Testimonials = (props) => {
   };
 
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#f9f9f9]">
+    <section className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#fff]">
       <div
         className="container relative"
         ref={containerRef}
-        // className=""
         onMouseDown={handleDragStart}
         onMouseMove={handleDragMove}
         onMouseUp={handleDragEnd}
@@ -157,20 +160,9 @@ export const Testimonial5Defaults = {
     {
       numberOfStars: 5,
       quote:
-        '"Working with ProC opened doors I never knew existed. Their support was invaluable in our partnership journey."',
-      avatar: {
-        src: Testimonial2,
-        alt: 'Testimonial avatar 1',
-      },
-      name: 'John doe',
-      position: 'Director, Global Initiatives',
-    },
-    {
-      numberOfStars: 5,
-      quote:
         '"Back in 2014/2015, I was referred to ProC Education Services for help with my master’s admission, and it was one of the best decisions I made. Their support, attention to detail, and genuine care helped me gain admission into a reputable U.S. university. Even years later, I still recommend them to anyone serious about studying abroad."',
       avatar: {
-        src: Testimonial2,
+        src: Testimonial4,
         alt: 'Testimonial avatar 1',
       },
       name: 'Fummi A.',
@@ -181,7 +173,7 @@ export const Testimonial5Defaults = {
       quote:
         '"ProC was a game-changer. They were honest, responsive, and always available to answer my many questions  even late at night! With their help, I secured admission and my F-1 visa without stress. You can trust them."',
       avatar: {
-        src: Testimonial2,
+        src: Testimonial5,
         alt: 'Testimonial avatar 1',
       },
       name: 'Blessing A.',
@@ -192,7 +184,7 @@ export const Testimonial5Defaults = {
       quote:
         '"Promise and the ProC team were patient, professional, and truly cared. From my statement of purpose to DS-160 prep, everything was on point. I’m now pursuing my Master’s in Public Health in the U.S. I can’t recommend them enough."',
       avatar: {
-        src: Testimonial2,
+        src: Testimonial6,
         alt: 'Testimonial avatar 1',
       },
       name: ' Ifeanyi O.',
@@ -202,7 +194,7 @@ export const Testimonial5Defaults = {
       numberOfStars: 5,
       quote: `"ProC Education doesn’t offer a one-size-fits-all service  they really got to know me, my goals, and helped tailor my college list and application essays. I got admitted into three U.S. universities and chose one that gave me a scholarship!"`,
       avatar: {
-        src: Testimonial3,
+        src: Testimonial7,
         alt: 'Testimonial avatar 2',
       },
       name: ' Tolu O.',
@@ -212,22 +204,22 @@ export const Testimonial5Defaults = {
       numberOfStars: 5,
       quote: `When I was lost and overwhelmed with college applications, ProC came through. They didn’t just assist me; they empowered me.  All thanks to their expert guidance and constant support."`,
       avatar: {
-        src: Testimonial3,
+        src: Testimonial8,
         alt: 'Testimonial avatar 2',
       },
       name: ' Michael U',
       position: 'International Student',
     },
-    {
-      numberOfStars: 5,
-      quote: `ProC Education Services changed my life! From helping me choose the right school to guiding me through the entire admission and visa process, they were there every step of the way, something I once thought was impossible. Thank you, ProC!`,
-      avatar: {
-        src: Testimonial3,
-        alt: 'Testimonial avatar 2',
-      },
-      name: ' Chinaza E.',
-      position: '',
-    },
+    // {
+    //   numberOfStars: 5,
+    //   quote: `ProC Education Services changed my life! From helping me choose the right school to guiding me through the entire admission and visa process, they were there every step of the way, something I once thought was impossible. Thank you, ProC!`,
+    //   avatar: {
+    //     src: Testimonial3,
+    //     alt: 'Testimonial avatar 2',
+    //   },
+    //   name: ' Chinaza E.',
+    //   position: '',
+    // },
   ],
 };
 

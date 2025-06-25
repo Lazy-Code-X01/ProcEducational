@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import LogoImage from '../assets/logo.png';
 
 const Footer = (props) => {
@@ -8,9 +8,17 @@ const Footer = (props) => {
   };
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isSpecialPage =
+    location.pathname === '/contact' ||
+    location.pathname === '/about' ||
+    location.pathname === '/' ||
+    location.pathname === '/programs';
+  const footerBgClass = isSpecialPage ? 'bg-[#f9f9f9]' : 'bg-white text-black';
 
   return (
-    <footer id="relume" className="bg-white py-10 px-4">
+    <footer id="relume" className={`${footerBgClass} py-10 px-4`}>
       <div className="mx-auto w-full max-w-screen-md text-center">
         <a href={logo.url} className="inline-block mb-6">
           <img src={logo.src} alt={logo.alt} className="mx-auto h-12 w-auto" />

@@ -1,6 +1,6 @@
 import { BiSolidStar } from 'react-icons/bi';
-import Testimonial2 from '../../assets/Testimonial2.png';
-import Testimonial3 from '../../assets/Testimonial3.png';
+import Testimonial8 from '../../assets/Testimonial8.jpeg';
+import Testimonial7 from '../../assets/Testimonial7.jpg';
 
 export const TestimonialSection = (props) => {
   const { heading, description, testimonials } = {
@@ -70,23 +70,23 @@ export const Testimonial5Defaults = {
     {
       numberOfStars: 5,
       quote:
-        '"Working with ProC opened doors I never knew existed. Their support was invaluable in our partnership journey."',
+        '"When I was lost and overwhelmed with college applications, ProC came through. They didn’t just assist me; they empowered me.  All thanks to their expert guidance and constant support."',
       avatar: {
-        src: Testimonial2,
+        src: Testimonial8,
         alt: 'Testimonial avatar 1',
       },
-      name: 'John doe',
-      position: 'Director, Global Initiatives',
+      name: 'Michael U',
+      position: 'International Student',
     },
     {
       numberOfStars: 5,
-      quote: `"The guidance from ProC was instrumental in our program's success. Their expertise made all the difference in our approach to international education."`,
+      quote: `"ProC Education doesn’t offer a one-size-fits-all service  they really got to know me, my goals, and helped tailor my college list and application essays. I got admitted into three U.S. universities and chose one that gave me a scholarship!"`,
       avatar: {
-        src: Testimonial3,
+        src: Testimonial7,
         alt: 'Testimonial avatar 2',
       },
-      name: 'Jane Smith',
-      position: 'Coordinator, Education Hub',
+      name: 'Tolu O',
+      position: 'Undergraduate Student',
     },
   ],
 };
